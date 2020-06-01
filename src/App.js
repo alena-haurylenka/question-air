@@ -27,6 +27,7 @@ function App() {
         {/*TODO move start button to separate component*/}
         {/*<StartButton/>*/}
       </header>
+
     </div>
   );
 }

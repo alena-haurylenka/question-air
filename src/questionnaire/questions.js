@@ -9,5 +9,5 @@ export default [
   {query: 'Did drinking get you into trouble on the job or in business'},
   {query: 'Have you ever had a complete loss of memory as a result\n' +
     'of drinking?'},
-  {query: 'Have you ever felt guilty after drinking??'}
+  {query: 'Have you ever felt guilty after drinking?'}
 ]
