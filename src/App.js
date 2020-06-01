@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Questionnaire from './Questionnaire';
+import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
   const [started, setStarted] = useState(false);
@@ -18,7 +19,7 @@ function App() {
             <p>
               Take a test
             </p>
-            <button onClick={() => setStarted(true)}>Start</button>
+            <button type="button" className="btn btn-primary" onClick={() => setStarted(true)}>Start</button>
           </React.Fragment>
         ) : (
           <Questionnaire/>

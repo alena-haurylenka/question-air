@@ -21,12 +21,12 @@ function Questionnaire() {
     <React.Fragment>
       <p>{question.query}</p>
       <div className="Qn-buttons">
-        <button onClick={() => {
+        <button type="button" className="btn btn-success" onClick={() => {
           setPosition(position + 1);
           setAffirmationNumber(affirmationNumber + 1)
         }}>Yes
         </button>
-        <button onClick={() => setPosition(position + 1)}>No</button>
+        <button type="button" className="btn btn-danger" onClick={() => setPosition(position + 1)}>No</button>
       </div>
     </React.Fragment>
   );
