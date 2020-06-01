@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import Questionnaire from './Questionnaire';
-import 'bootstrap/dist/css/bootstrap.css';
+import Questionnaire from './questionnaire/Questionnaire';
 
 function App() {
   const [started, setStarted] = useState(false);
