@@ -18,7 +18,7 @@ function App() {
             <p>
               Take a test
             </p>
-            <button type="button" className="btn btn-primary" onClick={() => setStarted(true)}>Start</button>
+            <button type="button" className="btn btn-primary btn-lg" onClick={() => setStarted(true)}>Start</button>
           </React.Fragment>
         ) : (
           <Questionnaire/>

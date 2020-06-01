@@ -11,7 +11,10 @@ function Questionnaire() {
   if (position > questions.length - 1) {
     return (
       <React.Fragment>
-        <p>{affirmationNumber/questions.length > ALCO_LIMIT ? 'You are an alcoholic! You need to get a treatment.' : 'Congratulation! You are not an alcoholic.'}</p>
+        {affirmationNumber / questions.length > ALCO_LIMIT ?
+          <p className="alert alert-danger" role="alert">You are an alcoholic! You need to get a treatment.</p> :
+          <p className="alert alert-success" role="alert">Congratulation! You are not an alcoholic.</p>
+        }
       </React.Fragment>
     );
   }
@@ -20,13 +23,13 @@ function Questionnaire() {
   return (
     <React.Fragment>
       <p>{question.query}</p>
-      <div className="Qn-buttons">
-        <button type="button" className="btn btn-success" onClick={() => {
+      <div className="btn-toolbar">
+        <button type="button" className="btn btn-success btn-lg mr-4" onClick={() => {
           setPosition(position + 1);
           setAffirmationNumber(affirmationNumber + 1)
         }}>Yes
         </button>
-        <button type="button" className="btn btn-danger" onClick={() => setPosition(position + 1)}>No</button>
+        <button type="button" className="btn btn-danger btn-lg" onClick={() => setPosition(position + 1)}>No</button>
       </div>
     </React.Fragment>
   );
