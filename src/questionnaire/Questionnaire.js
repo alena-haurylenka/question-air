@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Questionnaire.css';
 import questions from './questions';
 
-const ALCO_LIMIT = 0.7;
+const ALCO_LIMIT = 0.3;
 
 function Questionnaire() {
   const [position, setPosition] = useState(0);
@@ -11,9 +11,9 @@ function Questionnaire() {
   if (position > questions.length - 1) {
     return (
       <React.Fragment>
-        {affirmationNumber / questions.length > ALCO_LIMIT ?
-          <p className="alert alert-danger" role="alert">You are an alcoholic! You need to get a treatment.</p> :
-          <p className="alert alert-success" role="alert">Congratulation! You are not an alcoholic.</p>
+        {affirmationNumber / questions.length >= ALCO_LIMIT ?
+          <p className="alert alert-danger" role="alert">You may be an alcoholic! Try to get medical help.</p> :
+          <p className="alert alert-success" role="alert">Congratulation! Most likely you are not an alcoholic.</p>
         }
       </React.Fragment>
     );
