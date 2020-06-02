@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
-import './App.css';
+import React from 'react';
+import {connect} from 'react-redux';
+import {start} from './redux/actions'
 
-function StartButton() {
-    const [started, setStarted] = useState(false);
-
-    return (
-        <button onClick={() => setStarted(true)}>Start</button>
-    );
+function StartButton(props) {
+  return (
+    <button type="button" className="btn btn-primary btn-lg" onClick={() => props.start()}>
+      Start
+    </button>
+  );
 }
 
-export default StartButton;
+const mapDispatchToProps = {
+  start
+};
+
+export default connect(null, mapDispatchToProps)(StartButton);

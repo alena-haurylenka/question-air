@@ -1,14 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
+import {connect} from 'react-redux';
 import './App.css';
 import Questionnaire from './questionnaire/Questionnaire';
+import StartButton from './StartButton';
 
-function App() {
-  const [started, setStarted] = useState(false);
-
+function App({step}) {
   return (
     <div className="App">
       <header className="App-header">
-        {!started ? (
+        {step === "new" ? (
           <React.Fragment>
             <h1
               className="App-heading"
@@ -18,18 +18,20 @@ function App() {
             <p>
               Take a test
             </p>
-            <button type="button" className="btn btn-primary btn-lg" onClick={() => setStarted(true)}>Start</button>
+            <StartButton/>
           </React.Fragment>
         ) : (
           <Questionnaire/>
         )
         }
-        {/*TODO move start button to separate component*/}
-        {/*<StartButton/>*/}
       </header>
 
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  step: state.workflow.step
+});
+
+export default connect(mapStateToProps, null)(App);

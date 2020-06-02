@@ -1,0 +1,6 @@
+export const START = 'WORKFLOW/START';
+export const FINISH = 'WORKFLOW/FINISH';
+export const RENEW = 'WORKFLOW/RENEW';
+export const ADD_ANSWER = 'ANSWERS/ADD_ANSWER';
+export const RESET_ANSWERS = 'ANSWERS/RESET_ANSWERS';
+
