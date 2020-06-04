@@ -7,25 +7,30 @@ function Questionnaire() {
   const [position, setPosition] = useState(0);
   const [yesCount, setYesCount] = useState(0);
 
-  if (position > questions.length - 1) {
+  const length = questions.length;
+
+  if (position > length - 1) {
     return (
-      <QuestionnaireResults total={questions.length} yesCount={yesCount}/>
+      <QuestionnaireResults length={length} yesCount={yesCount}/>
     );
   }
 
-  const percentage = position * 100 / questions.length;
+  const percentage = position * 100 / length;
+
+  const incrementPosition = () => setPosition(position + 1);
+  const incrementYesCount =() => setYesCount(yesCount + 1);
 
   const question = questions[position];
   return (
-    <React.Fragment>
+    <>
       <p>{question.query}</p>
       <div className="btn-toolbar">
         <button type="button" className="btn btn-success btn-lg mr-4" onClick={() => {
-          setPosition(position + 1);
-          setYesCount(yesCount + 1);
+          incrementPosition();
+          incrementYesCount();
         }}>Yes
         </button>
-        <button type="button" className="btn btn-danger btn-lg" onClick={() => setPosition(position + 1)}>No</button>
+        <button type="button" className="btn btn-danger btn-lg" onClick={incrementPosition}>No</button>
       </div>
       <br/>
       <div className="progress">
@@ -34,7 +39,7 @@ function Questionnaire() {
           {percentage}%
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }
 

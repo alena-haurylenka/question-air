@@ -1,15 +1,17 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 import './App.css';
-import Questionnaire from './questionnaire/Questionnaire';
-import StartButton from './StartButton';
+import Questionnaire from './components/questionnaire/Questionnaire';
+import StartButton from './components/start-button/StartButton';
 
-function App({step}) {
+function App() {
+  const step = useSelector(state => state.workflow.step);
+
   return (
     <div className="App">
       <header className="App-header">
         {step === "new" ? (
-          <React.Fragment>
+          <>
             <h1
               className="App-heading"
             >
@@ -19,7 +21,7 @@ function App({step}) {
               Take a test
             </p>
             <StartButton/>
-          </React.Fragment>
+          </>
         ) : (
           <Questionnaire/>
         )
@@ -30,8 +32,4 @@ function App({step}) {
   );
 }
 
-const mapStateToProps = state => ({
-  step: state.workflow.step
-});
-
-export default connect(mapStateToProps, null)(App);
+export default App;
